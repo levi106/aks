@@ -95,7 +95,7 @@ module roleAssignment 'modules/subnetRoleAssignment.bicep' = {
   scope: rg
   params: {
     vnetName: vnet.name
-    subnetName: vnet.outputs.aksSubnetId
+    subnetName: vnet.outputs.aksSubnetName
     principalId: aks.outputs.principalId
   }
 }

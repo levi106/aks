@@ -189,3 +189,4 @@ output name string = vnet.name
 output id string = vnet.id
 output vmSubnetId string = vmSubnet.id
 output aksSubnetId string = aksSubnet.id
+output aksSubnetName string = aksSubnet.name

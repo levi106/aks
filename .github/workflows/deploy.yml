@@ -1,0 +1,29 @@
+name: Deploy Azure Resources
+
+on:
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+    
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Azure Login
+              uses: azure/login@v1
+              with:
+                creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+            - name: Azure CLI script file
+              uses: azure/CLI@v1
+              with:
+                azcliversion: 2.45.0
+                inlineScript: |
+                    cd bicep
+                    az deployment sub create -l ${{ secrets.AZURE_LOCATION }} \
+                        --name ${{ secrets.AZURE_DEPLOYMENT_NAME }} \
+                        --template-file=main.bicep \
+                        --parameters sqlAdminPassword=${{ secrets.AZURE_SQL_ADMIN_PASSWORD }} \
+                        --parameters adminPublicKey=${{ secrets.AZURE_ADMIN_PUBLIC_KEY}}
+

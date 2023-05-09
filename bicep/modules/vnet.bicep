@@ -149,7 +149,7 @@ var subnetConfigurations = [
   }
   {
     name: 'aksSubnet'
-    addressPrefix: '172.16.1.0/23'
+    addressPrefix: '172.16.4.0/23'
     nsgId: null
   }
 ]

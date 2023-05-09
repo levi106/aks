@@ -42,7 +42,7 @@ module la 'modules/la.bicep' = {
     name: 'la'
     location: location
   }
-}]
+}
 
 module ai 'modules/ai.bicep' = {
   name: 'ai'
@@ -52,7 +52,7 @@ module ai 'modules/ai.bicep' = {
     location: location
     laId: la.outputs.id
   }
-}]
+}
 
 module vnet 'modules/vnet.bicep' = {
   name: 'vnet'
@@ -87,7 +87,7 @@ module aks 'modules/aks.bicep' = {
     subnetName: vnet.outputs.aksSubnetId
     subnetResourceGroupName: rg.name
   }
-}]
+}
 
 module roleAssignment 'modules/subnetRoleAssignment.bicep' = {
   name: 'roleassignment'

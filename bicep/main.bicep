@@ -83,8 +83,7 @@ module aks 'modules/aks.bicep' = {
     name: 'aks'
     location: location
     laId: la.outputs.id
-    vnetName: vnet.name
-    subnetName: vnet.outputs.aksSubnetId
+    subnetId: vnet.outputs.aksSubnetId
     subnetResourceGroupName: rg.name
   }
 }

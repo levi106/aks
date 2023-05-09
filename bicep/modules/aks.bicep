@@ -5,7 +5,6 @@ param systemNodeCount int = 2
 param systemNodeVmSize string = 'Standard_D2s_v3'
 param laId string
 param subnetId string
-param subnetResourceGroupName string
 
 resource aks 'Microsoft.ContainerService/managedClusters@2022-11-01' = {
   name: name

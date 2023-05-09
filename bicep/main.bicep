@@ -2,6 +2,7 @@ targetScope = 'subscription'
 
 param resourceGroupName string = 'rg-aks'
 param location string = deployment().location
+param aksVersion string = '1.25.6'
 param adminUsername string = 'azureuser'
 @secure()
 param adminPublicKey string
@@ -84,7 +85,8 @@ module aks 'modules/aks.bicep' = {
     location: location
     laId: la.outputs.id
     subnetId: vnet.outputs.aksSubnetId
-    subnetResourceGroupName: rg.name
+    systemNodeCount: 1
+    aksVersion: aksVersion
   }
 }
 

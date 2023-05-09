@@ -6,7 +6,7 @@ resource subnet 'Microsoft.Network/virtualNetworks/subnets@2020-11-01' existing 
   name: '${vnetName}/${subnetName}'
 }
 
-resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(subnet.id, principalId, 'Network Contributor')
   scope: subnet
   properties: {

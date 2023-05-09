@@ -39,7 +39,7 @@ module la 'modules/la.bicep' = {
   name: 'la'
   scope: rg
   params: {
-    name: 'la'
+    name: 'la-${uniqueString(rg.id)}'
     location: location
   }
 }
@@ -48,7 +48,7 @@ module ai 'modules/ai.bicep' = {
   name: 'ai'
   scope: rg
   params: {
-    name: 'ai'
+    name: 'ai-${uniqueString(rg.id)}'
     location: location
     laId: la.outputs.id
   }

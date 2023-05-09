@@ -21,9 +21,8 @@ jobs:
                 azcliversion: 2.45.0
                 inlineScript: |
                     cd bicep
-                    az deployment sub create -l $AZURE_LOCATION \
-                        --name $AZURE_DEPLOYMENT_NAME \
+                    az deployment sub create -l ${{ vars.AZURE_LOCATION }} \
+                        --name ${{ vars.AZURE_DEPLOYMENT_NAME }} \
                         --template-file=main.bicep \
                         --parameters sqlAdminPassword=${{ secrets.AZURE_SQL_ADMIN_PASSWORD }} \
                         --parameters adminPublicKey=${{ secrets.AZURE_ADMIN_PUBLIC_KEY}}
-
